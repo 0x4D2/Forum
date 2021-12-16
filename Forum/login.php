@@ -48,12 +48,13 @@ if(isset($_POST['ben']) && isset($_POST['passwort'])){
 <!DOCTYPE html>
 <html>
 Login
+<br>
 </head>
 <body>
-	<br>
+
 <form action="" method="post">
 Benutzer<input type="test" name="ben"  required><br>
-Passwort<input type="password" name="passwort"  required><br>
+Passwort<input type="password" name="passwort" value = "" autocomplete="off" required  ><br>
 <input type="submit" value="Absenden"><br>
 </form>
 

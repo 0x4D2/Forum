@@ -30,7 +30,7 @@ require './nav/nav.php';
 												NULL,
 												NULL,
 												NULL,
-												(SELECT p_beGrupID FROM tblBenutzergruppe WHERE beGrupName = 'User') );";
+												(SELECT p_beGrupID FROM tblBenutzergruppe WHERE beGrupName = 'USER') );";
 				
 
 
@@ -103,10 +103,10 @@ try{
 					<td>Benutzername*:</td><td><input type="text" name="userName" value="" required></td>
 				</tr>
 				<tr>
-					<td>Passwort*:</td><td><input type="password"  name="password1" value="" required></td>
+					<td>Passwort*:</td><td><input type="password"  name="password1" value="" minlength="8" required></td>
 				</tr>
 				<tr>
-					<td>Passwort wiederholen*:</td><td><input type="password"  name="password2" value="" required></td>
+					<td>Passwort wiederholen*:</td><td><input type="password"  name="password2" value="" minlength="8" required></td>
 				</tr>
 				<tr>
 					<td>E-Mail*:</td><td><input type="text"  name="email" value="" required></td>

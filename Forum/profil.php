@@ -21,11 +21,12 @@ if(empty($check)){
 	echo "leer";
 }else{
 
-	echo "Herzlich Wilkommen ".$check['benName']."";
+	echo "<h1> <center> Herzlich Wilkommen <b> ".$check['benName']." </b> </center> </h1>";
+	echo "<h3> <center> Hier finden Sie alle Daten zu ihrem Nutzer </center> </h3>";
 
 
 
-$query3 = "Select benUeberMich from tblBenutzer Where p_benID= '".$_SESSION['userID']."' ";
+$query3 = "Select benUeberMich from tblBenutzer Where p_benID= '".$_SESSION['userID']."'";
 try{
 $stmt = $conn->prepare($query3);
 $stmt->execute();
@@ -45,9 +46,9 @@ echo ' <!DOCTYPE html>
 <head>
 </head>
 <body >
-<form action="" method="POST">
-Passwort: <input type="text" name="pw"  required><br>
-PAsswort wdh: <input type="text" name="pw2" value="" required><br>
+<form action="" method="POST" align="center" >
+Passwort:       <input type="text" name="pw"  required ><br>
+PAsswort wdh:   <input type="text" name="pw2" value="" required><br>
 <input type="submit" value="Abschicken">
 <br><br>
 </form>
@@ -58,7 +59,7 @@ PAsswort wdh: <input type="text" name="pw2" value="" required><br>
 
 
 <form action="" method="POST">
-	<textarea id="text" name="um" cols="50" rows="4"></textarea><br>
+	<textarea id="text" name="um" cols="100" rows="20"></textarea><br>
 	<input type="submit" Value="Setzen">
 	
 
