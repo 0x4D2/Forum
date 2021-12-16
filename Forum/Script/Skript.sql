@@ -1,5 +1,6 @@
-create or Replace Database forum;
-
+DROP Database forum;
+Create Database forum;
+use forum;
 create table if not Exists tblOberkategorien(
 
 	p_okatID 		 	int unsigned NOT NUll Auto_increment primary key,
@@ -35,6 +36,7 @@ create table if not Exists tblBenutzer(
 	benRegDatum 		datetime not null,
 	benBild 			varchar(255),
 	benUeberMich 		text,
+	benIsBanned		boolean,
 	f_beGrupID 			int unsigned Not Null,
 	foreign key(f_beGrupID)references tblBenutzergruppe(p_beGrupID)
 
