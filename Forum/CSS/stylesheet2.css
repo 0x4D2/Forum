@@ -22,3 +22,8 @@ footer {
   left: 0;
   right: 0;
 }
+
+form { 
+margin: 0 auto; 
+width:250px;
+}

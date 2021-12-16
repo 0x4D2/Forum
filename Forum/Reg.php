@@ -29,6 +29,7 @@ require './nav/nav.php';
 												NOW(),
 												NULL,
 												NULL,
+												NULL,
 												(SELECT p_beGrupID FROM tblBenutzergruppe WHERE beGrupName = 'USER') );";
 				
 
@@ -39,7 +40,7 @@ try{
 			$stmt=$conn->prepare($query);
 			$stmt->execute();
 		}catch(PDOException $e){
-			echo "DatenbankFehler: der Benutzer konnte nicht angelegt werden! <br>";
+			echo "Datenbank Fehler: der Benutzer konnte nicht angelegt werden! <br>";
 			echo $e->getMessage();
 			die("-ENDE_");
 
@@ -102,10 +103,10 @@ try{
 					<td>Benutzername*:</td><td><input type="text" name="userName" value="" required></td>
 				</tr>
 				<tr>
-					<td>Passwort*:</td><td><input type="password"  name="password1" value="" required></td>
+					<td>Passwort*:</td><td><input type="password"  name="password1" value="" minlength="8" required></td>
 				</tr>
 				<tr>
-					<td>Passwort wiederholen*:</td><td><input type="password"  name="password2" value="" required></td>
+					<td>Passwort wiederholen*:</td><td><input type="password"  name="password2" value="" minlength="8" required></td>
 				</tr>
 				<tr>
 					<td>E-Mail*:</td><td><input type="text"  name="email" value="" required></td>
