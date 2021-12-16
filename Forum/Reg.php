@@ -29,7 +29,8 @@ require './nav/nav.php';
 												NOW(),
 												NULL,
 												NULL,
-												(SELECT p_beGrupID FROM tblBenutzergruppe WHERE beGrupName = 'USER') );";
+												NULL,
+												(SELECT p_beGrupID FROM tblBenutzergruppe WHERE beGrupName = 'User') );";
 				
 
 
@@ -39,7 +40,7 @@ try{
 			$stmt=$conn->prepare($query);
 			$stmt->execute();
 		}catch(PDOException $e){
-			echo "DatenbankFehler: der Benutzer konnte nicht angelegt werden! <br>";
+			echo "Datenbank Fehler: der Benutzer konnte nicht angelegt werden! <br>";
 			echo $e->getMessage();
 			die("-ENDE_");
 
