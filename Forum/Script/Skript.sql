@@ -35,6 +35,7 @@ create table if not Exists tblBenutzer(
 	benRegDatum 		datetime not null,
 	benBild 			varchar(255),
 	benUeberMich 		text,
+	benIsBanned			boolean,
 	f_beGrupID 			int unsigned Not Null,
 	foreign key(f_beGrupID)references tblBenutzergruppe(p_beGrupID)
 
