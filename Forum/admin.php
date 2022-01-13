@@ -21,7 +21,7 @@ if (isset($_SESSION['userID'])) {
 		echo "Keine Adminrechte";
 	} else {
 
-		$query2 = " Select benName, benMail from tblBenutzer ";
+		$query2 = 'Select benName, benMail from tblBenutzer';
 		$stmt = $conn->prepare($query2);
 		$stmt->execute();
 		echo 'Auflistung der User <br><br>';
@@ -30,12 +30,10 @@ if (isset($_SESSION['userID'])) {
 		      <th>Email</th>
 			  </tr>';
 		while ($row = $stmt->fetch()) {
-			
-			echo '<tr><td>' . $row['benName'] . '</td> <td>' . $row['benMail'] .'</td></tr>';
-			
+
+			echo '<tr><td>' . $row['benName'] . '</td> <td>' . $row['benMail'] . '</td></tr>';
 		}
 		echo "</table>";
-		
 	}
 } else {
 
