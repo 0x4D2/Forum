@@ -12,6 +12,7 @@ $stmt->execute();
 }catch(PDOException $e){
 	echo "DatenbankFehler";
 	echo $e->getMessage();
+	$e
 	die("Ende");
 
 
