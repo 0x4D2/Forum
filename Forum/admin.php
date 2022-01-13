@@ -21,11 +21,13 @@ if (isset($_SESSION['userID'])) {
 		echo "Keine Adminrechte";
 	} else {
 
-		$query = " Select * from tblBenutzer ";
-
-
-
-		echo "Hallo Admin";
+		$query2 = " Select benName, benMail from tblBenutzer ";
+		$stmt = $conn->prepare($query2);
+		$stmt->execute();
+		echo "Auflistung der User <br><br>";
+		while ($row = $stmt->fetch()) {
+			echo 'Benutzername: '.$row['benName'].' Benutzermail: '.$row['benMail'].'<br>';
+		 }
 	}
 } else {
 
