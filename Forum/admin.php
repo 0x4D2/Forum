@@ -26,8 +26,8 @@ if (isset($_SESSION['userID'])) {
 		$stmt->execute();
 		echo "Auflistung der User <br><br>";
 		while ($row = $stmt->fetch()) {
-			echo 'Benutzername: '.$row['benName'].' Benutzermail: '.$row['benMail'].'<br>';
-		 }
+			echo 'Benutzername: ' . $row['benName'] . ' Benutzermail: ' . $row['benMail'] . '<br>';
+		}
 	}
 } else {
 
