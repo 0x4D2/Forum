@@ -24,10 +24,18 @@ if (isset($_SESSION['userID'])) {
 		$query2 = " Select benName, benMail from tblBenutzer ";
 		$stmt = $conn->prepare($query2);
 		$stmt->execute();
-		echo "Auflistung der User <br><br>";
+		echo 'Auflistung der User <br><br>';
+		echo '<table border = "1">
+			  <tr><th>Username</th>
+		      <th>Email</th>
+			  </tr>';
 		while ($row = $stmt->fetch()) {
-			echo 'Benutzername: ' . $row['benName'] . ' Benutzermail: ' . $row['benMail'] . '<br>';
+			
+			echo '<tr><td>' . $row['benName'] . '</td> <td>' . $row['benMail'] .'</td></tr>';
+			
 		}
+		echo "</table>";
+		
 	}
 } else {
 
