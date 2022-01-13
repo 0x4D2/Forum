@@ -11,10 +11,7 @@ if (isset($_SESSION['userID'])) {
 	if (isset($_POST['ben']) && isset($_POST['passwort'])) {
 
 
-		$query = "SELECT p_benID FROM tblBenutzer
-				  						WHERE benName = '" . $_POST['ben'] . "'
-				  						AND benPassWd = '" . $_POST['passwort'] . "'";
-
+		$query = "SELECT p_benID FROM tblBenutzer WHERE benName = '" . $_POST['ben'] . "' AND benPassWd = '" . $_POST['passwort'] . "'";
 		$query2 = "SELECT benIsBanned FROM tblBenutzer WHERE benName = '" . $_POST['ben'] . "'";
 
 
@@ -24,6 +21,7 @@ if (isset($_SESSION['userID'])) {
 
 			$stmt2 = $conn->prepare($query2);
 			$stmt2->execute();
+			
 		} catch (PDOException $e) {
 			header("Refresh:3;login.php");
 			echo "DatenbankFehler: der Benutzer konnte nicht angelegt werden! <br>";

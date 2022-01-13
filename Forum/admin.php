@@ -5,10 +5,7 @@ require './nav/nav.php';
 
 if (isset($_SESSION['userID'])) {
 
-
-
 	$query = " Select benName, f_beGrupID from tblBenutzer inner join tblBenutzergruppe on(f_beGrupID=p_beGrupID) Where beGrupName='Admin' AND p_benID='" . $_SESSION['userID'] . "'";
-
 
 	try {
 
