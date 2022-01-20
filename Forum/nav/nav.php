@@ -1,7 +1,7 @@
 <?php
 Session_start();
 
-
+#Einbindung der Navigationsleite
 ?>
 <html>
 <head>
