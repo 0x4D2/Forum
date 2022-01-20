@@ -69,10 +69,7 @@ if (isset($_SESSION['userID'])) {
 			echo "Login Erfolgreich";
 			echo " Weiterleitung";
 			$_SESSION['userID'] = $check['p_benID'];
-<<<<<<< Updated upstream
 			#Seession Cookie wird gesetzt 
-=======
->>>>>>> Stashed changes
 
 
 			exit();
