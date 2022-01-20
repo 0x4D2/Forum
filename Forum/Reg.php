@@ -27,7 +27,7 @@ if (
 												NULL,
 												NULL,
 												(SELECT p_beGrupID FROM tblBenutzergruppe WHERE beGrupName = 'USER') );";
-												#Jeder neue user bekommt den normalen User Rang
+		#Jeder neue user bekommt den normalen User Rang
 
 
 		try {
@@ -61,7 +61,8 @@ if (
 
 <body>
 	<form action="" method="POST">
-		<table>
+		<!---Hier wird die REST genutzt um die Felder zu übergeben-->
+		<table border="2">
 			<tr>
 				<td>Benutzername*:</td>
 				<td><input type="text" name="userName" value="" required></td>
