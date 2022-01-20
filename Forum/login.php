@@ -11,35 +11,42 @@ if (isset($_SESSION['userID'])) {
 } else {
 
 	if (isset($_POST['ben']) && isset($_POST['passwort'])) {
-#Hier wird überprüft ob, die Loginmaske aus gefüllt ist.
 
-		$query = "SELECT p_benID FROM tblBenutzer WHERE benName = '" . $_POST['ben'] . "' AND benPassWd = '" . $_POST['passwort'] . "'";
+
+		$query = "SELECT p_benID FROM tblBenutzer
+											  WHERE benName = '" . $_POST['ben'] . "'
+											  AND benPassWd = '" . $_POST['passwort'] . "'";
+											
+											
 		$query2 = "SELECT benIsBanned FROM tblBenutzer WHERE benName = '" . $_POST['ben'] . "'";
-		#Hier werden die SQL-Stamtments vorbereitet ob es den User mit den dazugehören Passwort gibt
-		#Zusätzlich wird überprüft on der User gebannt is
-
-
+	
+	
 		try {
 			$stmt = $conn->prepare($query);
 			$stmt->execute();
-
+			
 			$stmt2 = $conn->prepare($query2);
 			$stmt2->execute();
+			
+			
 		} catch (PDOException $e) {
 			header("Refresh:3;login.php");
-			#Bein Fehlerhafte Daten wird die login neu gelanden, damit man es erneut versuchen kann.
+			echo "DatenbankFehler: der Benutzer konnte nicht angelegt werden! <br>";
 			echo $e->getMessage();
-		if (empty($check) && $check2['benIsBanned'] = 1) {
+			die("-ENDE_");
+		}
+	
+		$check = $stmt->fetch();
+		$check2 = $stmt2->fetch();
+		if (empty($check) && $check2['benIsBanned'] = 1 ) {
 			echo "Benutzedaten sind falsch oder Sie sind gebannt";
-			#Überprüfung des Staments oder ob User gebannt ist
 		} else {
 			header("Refresh:3;index.php");
 			echo "Login Erfolgreich";
 			echo " Weiterleitung";
 			$_SESSION['userID'] = $check['p_benID'];
-			#Seession Cookie wird gesetzt 
-
-
+	
+	
 			exit();
 		}
 	}
