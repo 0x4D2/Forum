@@ -31,11 +31,14 @@ if (isset($_SESSION['userID'])) {
 			
 		} catch (PDOException $e) {
 			header("Refresh:3;login.php");
-			echo "DatenbankFehler: der Benutzer konnte nicht angemeldet werden! <br>";
+			echo "DatenbankFehler: der Benutzer konnte nicht angelegt werden! <br>";
 			echo $e->getMessage();
 			die("-ENDE_");
-			#Bein Fehlerhafte Daten wird die login neu gelanden, damit man es erneut versuchen kann.
-		if (empty($check) && $check2['benIsBanned'] = 1) {
+		}
+	
+		$check = $stmt->fetch();
+		$check2 = $stmt2->fetch();
+		if (empty($check) && $check2['benIsBanned'] = 1 ) {
 			echo "Benutzedaten sind falsch oder Sie sind gebannt";
 		} else {
 			header("Refresh:3;index.php");
@@ -47,8 +50,6 @@ if (isset($_SESSION['userID'])) {
 			exit();
 		}
 	}
-
-}
 }
 ?>
 
