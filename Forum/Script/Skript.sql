@@ -56,7 +56,6 @@ create table if not Exists tblThemen(
 );
 
 
-
 create table if not Exists tblBeitraege(
 	p_beiID 			int unsigned Not Null Auto_increment primary key,
 	beiErstellDatum 	datetime Not Null,

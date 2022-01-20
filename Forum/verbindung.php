@@ -3,6 +3,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "forum";
+#Paramenter werde definiert und and die PDO Funktion übergeben
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);

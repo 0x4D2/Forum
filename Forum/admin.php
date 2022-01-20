@@ -4,8 +4,10 @@ require './nav/nav.php';
 
 
 if (isset($_SESSION['userID'])) {
+	#Überprüft ob Session cookie mit UserID gesetzt und man eingeloggt ist.
 
 	$query = " Select benName, f_beGrupID from tblBenutzer inner join tblBenutzergruppe on(f_beGrupID=p_beGrupID) Where beGrupName='Administator' AND p_benID='" . $_SESSION['userID'] . "'";
+	#Hier wird Überprüft ob der User erhöhte Rechte hat
 
 	try {
 
@@ -19,6 +21,7 @@ if (isset($_SESSION['userID'])) {
 
 	if (empty($erg)) {
 		echo "Keine Adminrechte";
+		#Ausgabe der Auswertung wenn man keine Admin ist
 	} else {
 
 		$query2 = 'Select benName, benMail from tblBenutzer';
@@ -34,10 +37,12 @@ if (isset($_SESSION['userID'])) {
 			echo '<tr><td>' . $row['benName'] . '</td> <td>' . $row['benMail'] . '</td></tr>';
 		}
 		echo "</table>";
+		#Auflisung alles User, wenn man Admin Rechte hat
 	}
 } else {
 
 	echo 'Sie sind nicht eingeloggt';
 	echo '<a href=login.php>Zum Login....</a>';
+	#automatische Weiterleitung falls man nicht eingeloggt ists
 	exit();
 }

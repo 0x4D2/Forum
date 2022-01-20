@@ -9,12 +9,13 @@ if (
 	isset($_POST['gebDatum']) &&
 	isset($_POST['gender']) &&
 	isset($_POST['password2'])
+	#Hier wird überprüft on die Register ausgefüllt wurde
 ) {
 
-
+	#Überprüfen ob der User zweimal das gleiche Passwort eingegeben hat
 	if ($_POST['password1'] == $_POST['password2']) {
 
-
+		#Insert Stamtment wird vorbreite
 		$query = "INSERT INTO tblBenutzer VALUES ( 	NULL, 
 												'" . $_POST['userName'] . "',
 												'" . $_POST['password1'] . "',
@@ -26,6 +27,7 @@ if (
 												NULL,
 												NULL,
 												(SELECT p_beGrupID FROM tblBenutzergruppe WHERE beGrupName = 'USER') );";
+												#Jeder neue user bekommt den normalen User Rang
 
 
 		try {
